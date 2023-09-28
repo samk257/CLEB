@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\Tutor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TutoringController extends Controller
 {
@@ -52,6 +53,25 @@ class TutoringController extends Controller
                 ],
                 200
             );
+    }
+
+    public function order_tutor(Request $request)
+    {
+        $fields = $request->validate([
+            'name'  => 'required|string',
+            'class'  => 'required|string',
+            'school_attend'  => 'required|string',
+            'days'  => 'required|string',
+            'hours'  => 'required|string',
+            'address'  => 'required|string',
+            'description'  => 'required|string',
+            'email'  => 'required|email',
+            'phone_number'  => 'required|string',
+            'type_tutoring_id'  => 'required|exists:type_tutorings,id',
+            'courses'  => 'required|string',
+            'user_id' =>Auth::user()->id
+        ]);
+
     }
 
     /**
