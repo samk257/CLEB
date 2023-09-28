@@ -14,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('order_tutors', function (Blueprint $table) {
             $table->id();
-            $table->foreignId(User::class)->constrained();
-            $table->foreignId(TypeTutoring::class)->constrained();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('type_tutoring_id')->constrained();
             $table->string('courses');
             $table->string('class');
             $table->string('school_attend');
@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('phone_number');
             $table->string('address');
             $table->longText('description');
+            $table->string('status');
             $table->timestamps();
         });
     }
