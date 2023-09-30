@@ -19,9 +19,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name'=>"CLEB",
             'email'=>"admin@cleb.me",
-            'username'=>"cleb_admin",
-            'telephone'=>"68 18 40 40",
-            'address'=>"Kinindo, Bujumbura",
+            'phone_number'=>"68 18 40 40",
             'password'=>Hash::make('12345678'),
             'role_id'=>1
          ]);
