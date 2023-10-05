@@ -99,7 +99,7 @@ class UserController extends Controller
         //     $champs = 'username';
         // }
 
-        $user = User::where($fields['email'])->first();
+        $user = User::where('email',$fields['email'])->first();
 
         // check password
         if(!$user){
