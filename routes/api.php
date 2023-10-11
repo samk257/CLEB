@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V1\ClasseController;
 use App\Http\Controllers\Api\V1\CoursController;
+use App\Http\Controllers\Api\V1\LoginController;
 use App\Http\Controllers\Api\V1\TutoringController;
 use App\Http\Controllers\Api\V1\UserController;
 use Illuminate\Http\Request;
@@ -20,6 +21,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::group(['namespace'=>'Api'], function(){
+    // Route::any('/login','LoginController@login');
+    Route::any('/login',[LoginController::class,'createUser']);
 });
 
 Route::controller(UserController::class)->group(function(){
